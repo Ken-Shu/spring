@@ -34,4 +34,73 @@
 		  class="com.study.spring.case01.Author"
 		  c:name="Tom" c:sex="M" c:age="20"/>
 	
+	<bean id="lotto"
+		  scope="prototype" 
+		  class="com.study.spring.case01.Lotto"/>
+		  
+	<bean id="book"
+		  class="com.study.spring.case01.Book">
+		  <property name="name">
+		  <value>String</value>
+		  </property>
+		  <property name="price">
+		  <value>600</value>
+		  </property>
+		  <property name="author" ref="author2"></property>
+	</bean>
+	
+	<bean id="book2"
+		  class="com.study.spring.case01.Book"
+		  p:name="Java" p:price="700" p:author-ref="author3"/>
+		  
+	<bean id="book3"
+		  class="com.study.spring.case01.Book">
+		<constructor-arg value="Python" index="0"></constructor-arg>
+		<constructor-arg value="450" index="1"></constructor-arg>
+		<constructor-arg ref="author4" index="2"></constructor-arg>
+	</bean>
+	
+	<bean id="book4"
+		  class="com.study.spring.case01.Book"
+		  c:name="VB.NET" c:price="300" c:author-ref="author5"/>
+		  
+	<bean scope="singleton" id="husband" class="com.study.spring.case01.Husband">
+		<property name="name">
+			<value>John</value>
+		</property>
+		<property name="wife" ref="wife"></property>
+	</bean>	
+		  
+	<bean scope="singleton" id="wife" class="com.study.spring.case01.Wife">
+		<property name="name">
+			<value>Mary</value>
+		</property>
+		<property name="husband" ref="husband"></property>
+	</bean>
+	
+	<!-- 注意 : 使用建構子 c 同時注入有相關的 husband 與 wife 的參照 
+	若有遞迴錯誤的發生 則要考慮使用p 否則會發生遞迴錯誤 
+	在實務上使用 p(屬性) 會多過於 c(建構子)-->
+	<bean scope="singleton" id="wife2" class="com.study.spring.case01.Wife"
+		  c:name="Helen" p:husband-ref="husband2"
+		  />
+	
+	<bean scope="singleton" id="husband2" class="com.study.spring.case01.Husband"
+		  c:name="Tom" p:wife-ref="wife2"
+		  />
+		  
+	<bean id="dog" 
+		  class="com.study.spring.case01.Dog"
+		  p:name="拉不拉多"/>
+	<bean id="dog2" 
+		  class="com.study.spring.case01.Dog"
+		  p:name="柴犬"/>
+	<bean id="cat" 
+		  class="com.study.spring.case01.Cat"
+		  p:name="波斯貓"/>
+		  
+	<bean id="turnon" 
+		  class="com.study.spring.case01.TurnOn"
+		  init-method="init"
+		  destroy-method="destroy"/>
 </beans>

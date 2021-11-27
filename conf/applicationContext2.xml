@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+    
+    <!-- 手動配置 -->
+    <bean id="color" 
+    	  class="com.study.spring.case02.pagers.Color"
+    	  p:id="1" p:name="Yellow"
+    	  />
+    	  
+    <bean id="redcolor" 
+    	  class="com.study.spring.case02.pagers.Color"
+    	  p:id="2" p:name="Red"
+    	  />
+    	  
+    <bean id="size" 
+    	  class="com.study.spring.case02.pagers.Size"
+    	  p:id="10" p:name="A4"
+    	  />
+    	  
+    <bean id="b5size" 
+    	  class="com.study.spring.case02.pagers.Size"
+    	  p:id="11" p:name="B5"
+    	  />
+    <!-- 自動配置 -->
+    <bean id="pager" class="com.study.spring.case02.pagers.Pager"
+    	  p:id="100" autowire="byName"
+    	  />
+    <bean id="pager2" class="com.study.spring.case02.pagers.Pager2"
+    	  p:id="101" autowire="byName"
+    	  />
+     <bean id="pager3" class="com.study.spring.case02.pagers.Pager3"
+    	  p:id="102" autowire="constructor"
+    	  />
+    	  
+   <!-- *************************************************************** -->
+     
+     <bean id="clazz1" class="com.study.spring.case02.classroom.Clazz"
+     	  p:id="101" p:name="Program" p:credit="3"
+     	  />
+     <bean id="clazz2" class="com.study.spring.case02.classroom.Clazz"
+     	  p:id="102" p:name="Math" p:credit="2"
+     	  />
+     <bean id="clazz3" class="com.study.spring.case02.classroom.Clazz"
+     	  p:id="103" p:name="English" p:credit="1"
+     	  />
+     	   
+	 <bean id="student1" class="com.study.spring.case02.classroom.Student"
+     	  p:id="201" p:name="John">
+		<property name="clazzs">
+			<set>
+				<ref bean="clazz1"/>
+				<ref bean="clazz3"/>
+			</set>
+		</property>
+	 </bean>
+	 
+	 <bean id="student2" class="com.study.spring.case02.classroom.Student"
+     	  p:id="202" p:name="Mary">
+		<property name="clazzs">
+			<set>
+				<ref bean="clazz2"/>
+				<ref bean="clazz3"/>
+			</set>
+		</property>
+	 </bean>
+	 
+	 <bean id="student3" class="com.study.spring.case02.classroom.Student"
+     	  p:id="203" p:name="Helen">
+		<property name="clazzs">
+			<set>
+				<ref bean="clazz1"/>
+				<ref bean="clazz2"/>
+				<ref bean="clazz3"/>
+			</set>
+		</property>
+	 </bean>
+	 
+	 <util:set id="students">
+	 	<ref bean="student1"/>
+	 	<ref bean="student3"/>
+	 </util:set>
+	 
+	 <util:list id="subjects">
+	 	<value>Java</value>
+	 	<value>Python</value>
+	 </util:list>
+	 
+	 <util:map id="salary">
+	 	<entry>
+	 		<key>
+	 			<value>base</value>
+	 		</key>
+	 		<value>60000</value>
+	 	</entry>
+	 	<entry>
+	 		<key>
+	 			<value>addition</value>
+	 		</key>
+	 		<value>25000</value>
+	 	</entry>
+	 </util:map>
+	 
+	 <bean id="teacher1" 
+	 	   class="com.study.spring.case02.classroom.Teacher"
+	 	   p:id="301" p:name="Bob" p:students-ref="students" 
+	 	   p:subjects-ref="subjects" p:salary-ref="salary"/>
+	 
+	 <bean id="car" class="com.study.spring.case02.motor.CarFactory"/>
+	 
+	 <bean id="mystock" class="com.study.spring.case02.stock.MyStockFactory"/>
+	 </beans>
+	 

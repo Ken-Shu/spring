@@ -4,6 +4,8 @@ public class Author {
 	private String name;
 	private Character sex;
 	private Integer age;
+	
+	
 	public Author(String name, Character sex, Integer age) {
 		super();
 		this.name = name;
