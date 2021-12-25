@@ -1,0 +1,1 @@
+Select * FROM emp WHERE eid=3
