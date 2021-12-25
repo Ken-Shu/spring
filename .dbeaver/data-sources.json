@@ -1,0 +1,55 @@
+{
+	"folders": {},
+	"connections": {
+		"mysql8-17df01de744-3c0b4d19da1abdd3": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "web",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "web",
+				"url": "jdbc:mysql://localhost:3306/web",
+				"home": "C:\\Program Files\\MySQL\\MySQL Server 8.0",
+				"type": "dev",
+				"properties": {
+					"connectTimeout": "20000",
+					"rewriteBatchedStatements": "true",
+					"enabledTLSProtocols": "TLSv1,TLSv1.1,TLSv1.2"
+				},
+				"auth-model": "native",
+				"handlers": {}
+			}
+		},
+		"mysql8-17df028141c-6f88e15fcdecf7e4": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "sys",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "192.168.1.101",
+				"port": "3306",
+				"database": "sys",
+				"url": "jdbc:mysql://192.168.1.101:3306/sys",
+				"home": "C:\\Program Files\\MySQL\\MySQL Server 8.0",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}
