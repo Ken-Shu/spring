@@ -1,13 +1,16 @@
 package com.study.spring.case07.jdbc;
 
 import java.util.Date;
+import java.util.List;
 
 // Entity
 public class Emp {
 	private Integer eid;
 	private String ename;
 	private Integer age;
-	private Date createdate;
+	private Date createtime;
+	//加入 job
+	private List<Job> jobs;
 	
 	public Emp(String ename, Integer age) {
 		super();		
@@ -43,17 +46,30 @@ public class Emp {
 		this.age = age;
 	}
 
-	public Date getCreatedate() {
-		return createdate;
+	
+
+	
+	public Date getCreatetime() {
+		return createtime;
 	}
 
-	public void setCreatedate(Date createdate) {
-		this.createdate = createdate;
+	public void setCreatetime(Date createtime) {
+		this.createtime = createtime;
+	}
+
+	public List<Job> getJobs() {
+		return jobs;
+	}
+
+	public void setJobs(List<Job> jobs) {
+		this.jobs = jobs;
 	}
 
 	@Override
 	public String toString() {
-		return "Emp [eid=" + eid + ", ename=" + ename + ", age=" + age + ", createdate=" + createdate + "]";
+		return "Emp [eid=" + eid + ", ename=" + ename + ", age=" + age + ", createtime=" + createtime + ", jobs=" + jobs
+				+ "]";
 	}
+
 	
 }

@@ -1,4 +1,4 @@
-package case07;
+package case07.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,7 +36,7 @@ public class TestReadEmp {
 			emp.setEid(eid);
 			emp.setEname(ename);
 			emp.setAge(age);
-			emp.setCreatedate(createtime);
+			emp.setCreatetime(createtime);
 			return emp;
 		});
 		System.out.println(emps2);
@@ -57,9 +57,25 @@ public class TestReadEmp {
 			emp.setEid(eid);
 			emp.setEname(ename);
 			emp.setAge(age);
-			emp.setCreatedate(createtime);
+			emp.setCreatetime(createtime);
 			return emp;
 		});
 		System.out.println(row);
+		
+		//單筆查詢2
+		String sql3 = "Select * FROM emp WHERE eid=?";
+		Integer eid = 2;
+		Emp emp = jdbcTemplate.queryForObject(sql3, new BeanPropertyRowMapper<Emp>(Emp.class),eid);
+		System.out.println(emp);
+		
+		//單筆查詢3
+		String sql4 = "Select ename FROM emp WHERE eid=?";
+		String emp2 = jdbcTemplate.queryForObject(sql4,String.class,2);
+		System.out.println(emp2);
+		
+		//資料比數
+		String sql5 = "Select count(*)FROM emp";
+		Integer count = jdbcTemplate.queryForObject(sql5,Integer.class);
+		System.out.println("資料比數 : "+count);
 	}
 }

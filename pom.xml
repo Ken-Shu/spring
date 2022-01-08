@@ -142,5 +142,21 @@
             <version>0.9.5.5</version>
         </dependency>
 		
+		<!-- https://mvnrepository.com/artifact/org.simpleflatmapper/sfm-jdbc -->
+		<dependency>
+    		<groupId>org.simpleflatmapper</groupId>
+    		<artifactId>sfm-jdbc</artifactId>
+    		<version>8.2.3</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.simpleflatmapper/sfm-springjdbc -->
+		<dependency>
+    		<groupId>org.simpleflatmapper</groupId>
+    		<artifactId>sfm-springjdbc</artifactId>
+    		<version>8.2.3</version>
+		</dependency>
+		
+		
+		
 	</dependencies>
 </project>

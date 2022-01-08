@@ -1,4 +1,4 @@
-package case07;
+package case07.jdbc;
 
 
 import java.sql.PreparedStatement;
